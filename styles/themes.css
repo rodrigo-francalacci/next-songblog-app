@@ -1,0 +1,19 @@
+.orangeDarkBot{
+    background-color: var(--orange-dark);
+    border-color: var(--gray-light);
+    color:var(--white);
+}
+
+.orangeNormalBot{
+    background-color: var(--orange-normal);
+    border-color: var(--black);
+    color: var(--black);
+}
+
+.bkgOrangeDark{
+    background-color: var(--orange-dark);
+}
+
+.bkgBeige{
+    background-color: var(--beige);
+}

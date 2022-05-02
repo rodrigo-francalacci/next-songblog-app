@@ -1,0 +1,209 @@
+.blogSecContainer{
+    width: 100%;
+    height: 100vh;
+    min-height: 53.70rem;
+    background-color: var(--beige);
+    position: relative;
+}
+
+.blogSecContainer > div{
+    display: inline;
+}
+
+    .descriptionContainer{
+        width: 25.72rem;
+    }
+
+    .descriptionContainer p{
+        margin-top: 1.3rem;
+        margin-bottom: 0.67rem;
+    }
+
+
+/* Clamps */
+.width_620 {
+
+    --sMin: calc(620 / 2); /* smallest width size in pixels */
+    --sMax: 620; /* largest width size in pixels */
+    
+      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sMin) * 1px);
+      --max: calc(var(--sMax) * 1px);
+  
+      width: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+
+  }
+
+.width_350 {
+
+    --sMin: calc(350 / 2); /* smallest width size in pixels */
+    --sMax: 350; /* largest width size in pixels */
+    
+      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sMin) * 1px);
+      --max: calc(var(--sMax) * 1px);
+  
+      width: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+
+  }
+
+  .description_position{
+    width: fit-content;
+    position: absolute;
+    top: 167px;
+
+      /* Left postion calculation */
+    --sMin: -80; /* smallest width size in pixels */
+    --sMax: 347; /* largest width size in pixels */
+    
+      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sMin) * 1px);
+      --max: calc(var(--sMax) * 1px);
+  
+      left: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+  }
+
+  .card1_position{
+    width: fit-content;
+    position: absolute;
+    top: 127px;
+
+      /* Left postion calculation */
+    --sMin: 792/3; /* smallest width size in pixels */
+    --sMax: 1139; /* largest width size in pixels */
+    
+      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sMin) * 1px);
+      --max: calc(var(--sMax) * 1px);
+  
+      left: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+
+  }
+  .card2_position{
+    width: fit-content;
+    position: absolute;
+    top: 537px;
+
+      /* Left postion calculation */
+    --sMin: -60; /* smallest width size in pixels */
+    --sMax: 219; /* largest width size in pixels */
+    
+      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sMin) * 1px);
+      --max: calc(var(--sMax) * 1px);
+  
+      left: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+
+  }
+  .card3_position{
+    width: fit-content;
+    position: absolute;
+    top:609px;
+
+      /* Left postion calculation */
+    --sMin: 782/2.9; /* smallest width size in pixels */
+    --sMax: 991; /* largest width size in pixels */
+    
+      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sMin) * 1px);
+      --max: calc(var(--sMax) * 1px);
+  
+      left: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+
+  }
+
+
+  /* Media Query */
+
+  @media only screen and (max-width: 720px) {
+    .blogSecContainer {
+        height: fit-content;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .blogSecContainer > div{
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .description_position{
+        width: 100%;
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+
+    .descriptionContainer{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .card1_position{
+        width: 100%;
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+
+    .card2_position{
+        width: 100%;
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+    .card3_position{
+        width: 100%;
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+
+    .width_350{
+        width: 68%;
+        margin: 0 auto;
+    }
+
+    .width_620{
+        width: 86%;
+        margin: 0 auto;
+    }
+  }

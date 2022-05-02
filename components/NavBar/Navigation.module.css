@@ -1,0 +1,139 @@
+.mobileNavigation{
+width: 100%;
+}
+
+    .menuClosed{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 70px;
+    background-color: var(--orange-dark);
+    }
+
+    .menuOpened{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: fixed;
+    width: 100%;
+    background-color: var(--orange-dark);
+    }
+
+    .contentContainer{
+        height: 100vh;
+        background-color: inherit;
+    }
+
+        .menuContent{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-color: inherit;
+
+        }
+
+        .menuRodrigo{
+        margin-right: 5.7692rem;
+            
+        }
+
+        .hamburger{
+            cursor: pointer;
+
+        }
+        .closebot{
+            position: absolute;
+            cursor: pointer;
+
+            /* change later */
+            right: 5%;
+        }
+
+        .closeNavTitle{
+            color: var(--white);
+        }
+
+    
+.navigation{
+    display: none;
+}
+
+
+.width_432_360 {
+    --wMin: 360; /* smallest width in pixels */
+    --wMax: 432; /* largest width in pixels */
+    
+      --marDiff: calc(var(--wMax) - var(--wMin));
+      --xCoefUp: calc( var(--wMin) * var(--screenDiff) - var(--marDiff) * var(--sScreen) );
+      --xCoef: calc(var(--xCoefUp) / (16 * var(--screenDiff) ) );
+      --yCoef: calc(100 * (var(--marDiff) / var(--screenDiff) ) );
+  
+    width: clamp(calc(var(--wMin) * 1rem / 16), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), calc(var(--wMax) * 1rem / 16));
+   
+    
+  }
+
+.marginR_31_42{
+
+    --min: 42; /* margin left in the smallest screen (pixels)*/
+    --max: 31; /* margin left in the biggest sreen (pixels) */
+    
+      --marDiff: calc(var(--max) - var(--min));
+      --xCoefUp: calc( var(--min) * var(--screenDiff) - var(--marDiff) * var(--sScreen) );
+      --xCoef: calc(var(--xCoefUp) / (16 * var(--screenDiff) ) );
+      --yCoef: calc(100 * (var(--marDiff) / var(--screenDiff) ) );
+  
+    margin-left: clamp(calc(var(--max) * 1rem / 16), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), calc(var(--min) * 1rem / 16));
+
+}
+
+.right_240_0{
+
+    --min: 0; /* margin left in the smallest screen (pixels)*/
+    --max: 240; /* margin left in the biggest sreen (pixels) */
+    
+      --marDiff: calc(var(--max) - var(--min));
+      --xCoefUp: calc( var(--min) * var(--screenDiff) - var(--marDiff) * var(--sScreen) );
+      --xCoef: calc(var(--xCoefUp) / (16 * var(--screenDiff) ) );
+      --yCoef: calc(100 * (var(--marDiff) / var(--screenDiff) ) );
+  
+    right: clamp(calc(var(--min) * 1rem / 16), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), calc(var(--max) * 1rem / 16));
+
+}
+
+.paddingT_269_192 {
+
+    --sPad: 192; /* smallest padding in pixels */
+    --bPad: 269; /* largest padding size in pixels */
+    
+      --fontDiff: calc((var(--bPad) * var(--sFactor)) - (var(--sPad) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--bPad) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sPad) * 1px);
+      --max: calc(var(--bPad) * 1px);
+  
+      padding-top: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+   
+  }
+
+
+
+@media only screen and (max-width: 720px) {
+    .menuRodrigo{
+       display:none;
+    } 
+
+    .width_432_360{
+      width: 100%;
+    }
+
+    .right_240_0{
+      right: auto;
+    }
+  }

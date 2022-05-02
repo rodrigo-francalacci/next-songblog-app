@@ -1,0 +1,243 @@
+:root {
+  --sScreen: 360; /* smallest screen size in pixels */
+  --bScreen: 1730; /* largest screen size in pixels */
+  --sFactor: 1; /*set the min HTML clamp font size in REM */
+  --bFactor: 1.3; /*set the max HTML clamp font size in REM */
+  --screenDiff: calc((var(--bScreen) * var(--sFactor)) - (var(--sScreen) * var(--bFactor)));
+}
+
+
+/* HTML and BODY clamp calculation */
+html, body {
+    --sFont: calc(16 * var(--sFactor)); /* smallest font size in pixels */
+    --bFont: calc(16 * var(--bFactor)); /* largest font size in pixels */
+    
+      --fontDiff: calc(var(--bFont) - var(--sFont));
+      --xCoefUp: calc( var(--sFont) * var(--screenDiff) - var(--fontDiff) * var(--sScreen) );
+      --xCoef: calc(var(--xCoefUp) / (16 * var(--screenDiff) ) );
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+  
+    font-size: clamp(calc(var(--sFont) * 1rem / 16), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), calc(var(--bFont) * 1rem / 16));
+  }
+
+
+  /* rodrigo francalacci opened nav bar */
+  .size-70{
+
+    /* Font size calculation */
+    --sFont: 53; /* smallest font size in pixels */
+    --bFont: 70; /* largest font size in pixels */
+    
+        --fontDiff: calc((var(--bFont) * var(--sFactor)) - (var(--sFont) * var(--bFactor)));
+        --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+        --xP1: calc(var(--bFont) / (16 * var(--bFactor)));
+        --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+        --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+        --min: calc(var(--sFont) * 1px);
+        --max: calc(var(--bFont) * 1px);
+    
+        font-size:  clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+  
+
+    /* line-height calculation */
+    --bH: 70; /* line-height in pixels for the big font-size */
+    --p: calc(var(--bH) / var(--bFont)); /* percentage of the font-size */
+    line-height: clamp(var(--min) * var(--p), calc( var(--xCoef)*1rem + var(--yCoef)*1vw ) * var(--p), var(--max) * var(--p));
+
+    /* Other properties */
+    font-family: var(--font-notoserif);
+    font-weight: 500;
+    /* letter-spacing: -0.04em; */
+
+  }
+
+  /* nav itens*/
+  .size-49{
+    /* font-size: 3.0625rem; */
+    font-size: 49px;
+    font-family: var(--font-notoserif);
+    font-weight: 500;
+    line-height: 4.1875rem;
+    /* letter-spacing: -0.04em; */
+  }
+
+ /*album session title*/
+  .size-49a{
+
+    /* Font size calculation */
+    --sFont: 35; /* smallest font size in pixels */
+    --bFont: 49; /* largest font size in pixels */
+    
+        --fontDiff: calc((var(--bFont) * var(--sFactor)) - (var(--sFont) * var(--bFactor)));
+        --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+        --xP1: calc(var(--bFont) / (16 * var(--bFactor)));
+        --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+        --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+        --min: calc(var(--sFont) * 1px);
+        --max: calc(var(--bFont) * 1px);
+    
+        font-size:  clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+  
+
+    /* line-height calculation */
+    --bH: 48; /* line-height in pixels for the big font-size */
+    --p: calc(var(--bH) / var(--bFont)); /* percentage of the font-size */
+    line-height: clamp(var(--min) * var(--p), calc( var(--xCoef)*1rem + var(--yCoef)*1vw ) * var(--p), var(--max) * var(--p));
+
+    /* Other properties */
+    font-family: var(--font-notoserif);
+    font-weight: 500;
+    /* letter-spacing: -0.04em; */
+
+  }
+
+  .size-42{
+    /* font-size: 3.0625rem; */
+    font-size: 2.0192rem;
+    font-family: var(--font-notoserif);
+    font-weight: 500;
+    line-height: 3.3653rem;
+    /* letter-spacing: -0.04em; */
+  }
+
+  /* main listen button */
+  .size-35{
+
+      /* Font size calculation */
+      --sFont: 21; /* smallest font size in pixels */
+      --bFont: 35; /* largest font size in pixels */
+      
+          --fontDiff: calc((var(--bFont) * var(--sFactor)) - (var(--sFont) * var(--bFactor)));
+          --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+  
+          --xP1: calc(var(--bFont) / (16 * var(--bFactor)));
+          --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+          --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+  
+          --min: calc(var(--sFont) * 1px);
+          --max: calc(var(--bFont) * 1px);
+      
+          font-size:  clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+    
+  
+      /* line-height calculation */
+      --bH: 48; /* line-height in pixels for the big font-size */
+      --p: calc(var(--bH) / var(--bFont)); /* percentage of the font-size */
+      line-height: clamp(var(--min) * var(--p), calc( var(--xCoef)*1rem + var(--yCoef)*1vw ) * var(--p), var(--max) * var(--p));
+  
+      /* Other properties */
+      font-family: var(--font-notoserif);
+      font-weight: 500;
+      /* letter-spacing: -0.04em; */
+  
+    }
+
+  /* rodrigo francalacci closed nav bar */
+  .size-28{
+
+    /* Font size calculation */
+    --sFont: 21; /* smallest font size in pixels */
+    --bFont: 28; /* largest font size in pixels */
+    
+        --fontDiff: calc((var(--bFont) * var(--sFactor)) - (var(--sFont) * var(--bFactor)));
+        --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+        --xP1: calc(var(--bFont) / (16 * var(--bFactor)));
+        --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+        --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+        --min: calc(var(--sFont) * 1px);
+        --max: calc(var(--bFont) * 1px);
+    
+        font-size:  clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+
+    /* line-height calculation */
+    --bH: 38; /* line-height in pixels for the big font-size */
+    --p: calc(var(--bH) / var(--bFont)); /* percentage of the font-size */
+    line-height: clamp(var(--min) * var(--p), calc( var(--xCoef)*1rem + var(--yCoef)*1vw ) * var(--p), var(--max) * var(--p));
+  
+    /* Other properties */
+    font-family: var(--font-notoserif);
+    font-weight: 500;
+    /* line-height: 1.8125rem; */
+    /* letter-spacing: -0.04em; */
+
+  }
+
+    /* nav itens*/
+    .size-28n{
+      font-size: 28px;
+      font-family: var(--font-notoserif);
+      font-weight: 500;
+      line-height: 38px;
+      /* letter-spacing: -0.04em; */
+    }
+
+  /* small button text */
+  .size-21{
+
+    /* Font size calculation */
+    --sFont: 14; /* smallest font size in pixels */
+    --bFont: 21; /* largest font size in pixels */
+    
+        --fontDiff: calc((var(--bFont) * var(--sFactor)) - (var(--sFont) * var(--bFactor)));
+        --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+        --xP1: calc(var(--bFont) / (16 * var(--bFactor)));
+        --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+        --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+        --min: calc(var(--sFont) * 1px);
+        --max: calc(var(--bFont) * 1px);
+    
+        font-size:  clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+
+    /* line-height calculation */
+    --bH: 28.6; /* line-height in pixels for the big font-size */
+    --p: calc(var(--bH) / var(--bFont)); /* percentage of the font-size */
+    line-height: clamp(var(--min) * var(--p), calc( var(--xCoef)*1rem + var(--yCoef)*1vw ) * var(--p), var(--max) * var(--p));
+  
+    /* Other properties */
+    font-family: var(--font-notoserif);
+    font-weight: 500;
+    /* line-height: 1.8125rem; */
+    /* letter-spacing: -0.04em; */
+
+  }
+
+    /* paragraph */
+  .size-28p{
+
+      /* Font size calculation */
+      --sFont: 14; /* smallest font size in pixels */
+      --bFont: 21; /* largest font size in pixels */
+      
+          --fontDiff: calc((var(--bFont) * var(--sFactor)) - (var(--sFont) * var(--bFactor)));
+          --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+  
+          --xP1: calc(var(--bFont) / (16 * var(--bFactor)));
+          --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+          --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+  
+          --min: calc(var(--sFont) * 1px);
+          --max: calc(var(--bFont) * 1px);
+      
+          font-size:  clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+  
+      /* line-height calculation */
+      --bH: 35; /* line-height in pixels for the big font-size */
+      --p: calc(var(--bH) / var(--bFont)); /* percentage of the font-size */
+      line-height: clamp(var(--min) * var(--p), calc( var(--xCoef)*1rem + var(--yCoef)*1vw ) * var(--p), var(--max) * var(--p));
+    
+      /* Other properties */
+      font-family: var(--font-notoserif);
+      font-weight: 500;
+      /* line-height: 1.8125rem; */
+      /* letter-spacing: -0.04em; */
+  
+    }
+

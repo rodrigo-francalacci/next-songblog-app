@@ -1,0 +1,8 @@
+.navBarContainer{
+    position: fixed;
+    z-index: 500;
+    width: 100%;
+    
+    /* change later */
+    height: fit-content;
+}

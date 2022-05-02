@@ -1,0 +1,57 @@
+.sBotContainer{
+    background-color: var(--orange-normal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--black);
+}
+
+.sBotLink{
+    color:var(--black);
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+
+.width_311_172 {
+
+    --sMin: 172; /* smallest width size in pixels */
+    --sMax: 311; /* largest width size in pixels */
+    
+      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sMin) * 1px);
+      --max: calc(var(--sMax) * 1px);
+  
+      width: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+   
+  }
+
+
+  /* HEIGHTS */
+  .height_72_40 {
+
+    --sMin: 40; /* smallest width size in pixels */
+    --sMax: 72; /* largest width size in pixels */
+    
+      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sMin) * 1px);
+      --max: calc(var(--sMax) * 1px);
+  
+      height: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+   
+  }

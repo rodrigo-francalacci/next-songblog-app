@@ -1,0 +1,133 @@
+.footerContainer{
+    width: 100%;
+    min-height: 18.75rem;
+    margin:0 auto;
+}
+
+    .footerBar{
+        border-style: solid;
+        border-color: var(--black);
+        border-top-width: 2px;
+        margin: 0 auto;
+    }
+
+    .footerInfo{
+        margin: 0 auto;
+        padding-top: 56px;
+        padding-bottom: 56px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+        .footerContactInfo{
+
+        }
+
+        .footerContactInfo p{
+            color: var(--white);
+        }
+
+        .footerPolicyInfo{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .footerPolicyInfo > div:first-child{
+
+        }
+
+
+/* Clamps */
+.width_1292_360{
+    --sMin: 530; /* smallest width size in pixels */
+    --sMax: 1292; /* largest width size in pixels */
+    
+      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sMin) * 1px);
+      --max: calc(var(--sMax) * 1px);
+  
+      width: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+  }
+
+  .margin_R_180_0{
+    --sMin: 0; /* smallest width size in pixels */
+    --sMax: 180; /* largest width size in pixels */
+    
+      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sMin) * 1px);
+      --max: calc(var(--sMax) * 1px);
+  
+      margin-right: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+  }
+
+  .margin_R_42_0{
+    --sMin: 0; /* smallest width size in pixels */
+    --sMax: 42; /* largest width size in pixels */
+    
+      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sMin) * 1px);
+      --max: calc(var(--sMax) * 1px);
+  
+      margin-right: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+  }
+
+  @media only screen and (max-width: 760px) {
+    .width_1292_360{
+        width: 100%;
+    }
+
+    .footerInfo{
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 56px;
+    }
+
+    .footerPolicyInfo{
+        flex-direction: column;
+        align-items: center;
+        
+        
+    }
+
+    .footerContactInfo{
+        padding-bottom: 2rem;
+    }
+
+    .footerContactInfo p{
+        text-align: center;
+    }
+
+    .margin_R_180_0{
+        margin-right: 0;
+    }
+
+    .margin_R_42_0{
+        margin-right: 0;
+        padding-bottom: 1rem;
+    }
+
+    .footerPolicyInfo{
+        text-align: center;
+    }
+
+  }

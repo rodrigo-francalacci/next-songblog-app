@@ -1,0 +1,6 @@
+.NavLinksList{
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+}
+

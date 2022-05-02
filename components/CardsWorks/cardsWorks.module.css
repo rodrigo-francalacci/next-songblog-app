@@ -1,0 +1,140 @@
+.cwContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--orange-normal);
+    width: fit-content;
+}
+
+    .cwImgContainer{
+        width: 100%;
+        padding-top: 68%; /* H:W Aspect Ratio */
+        position: relative; /* If you want text inside of it */
+        background-color: inherit;
+
+    }
+
+        .cwImage{
+            object-fit: cover;
+            position: absolute;
+            width: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: inherit;
+        }
+
+    .cwContent{
+   
+        
+    }
+
+
+        .cwAlbumInfo{
+            margin-bottom: 0.8653rem;
+            background-color: inherit;
+           
+            
+        }
+
+            .cwAlbumName{
+                display: inline;
+                background-color: inherit;
+               
+            }
+
+            .cwAlbumYear{
+                display: inline;
+                background-color: inherit;
+               
+            }
+        
+        .cwLinkCont{
+
+        }
+
+
+/* Clamps */
+.width_493_216 {
+
+    --sMin: 216; /* smallest width size in pixels */
+    --sMax: 493; /* largest width size in pixels */
+    
+      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sMin) * 1px);
+      --max: calc(var(--sMax) * 1px);
+  
+      width: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+
+  }
+
+  .margin_T_102_42 {
+
+    --sMin: 42; /* smallest width size in pixels */
+    --sMax: 102; /* largest width size in pixels */
+    
+      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sMin) * 1px);
+      --max: calc(var(--sMax) * 1px);
+  
+      margin-top: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+   
+  }
+
+  .margin_L_85_37 {
+
+    --sMin: 37; /* smallest width size in pixels */
+    --sMax: 85; /* largest width size in pixels */
+    
+      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sMin) * 1px);
+      --max: calc(var(--sMax) * 1px);
+  
+      margin-left: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+   
+
+  }
+
+  /* Media Query */
+
+  @media only screen and (max-width: 630px) {
+    .cwAlbumInfo {
+      display: none;
+    }
+
+    .cwContainer{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .margin_L_85_37{
+        margin-left: 0;
+    }
+
+    .cwImgContainer{
+        margin-bottom: 1.30rem;
+    }
+  }
+

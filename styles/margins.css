@@ -1,0 +1,57 @@
+/* MARGIN LEFT-RIGHT */
+/* ------------------------------- */
+.margin_LR-50-10 {
+    --sMar: 5; /* smallest font size in pixels */
+    --bMar: 25; /* largest font size in pixels */
+    
+      --marDiff: calc(var(--bMar) - var(--sMar));
+      --xCoefUp: calc( var(--sMar) * var(--screenDiff) - var(--marDiff) * var(--sScreen) );
+      --xCoef: calc(var(--xCoefUp) / (16 * var(--screenDiff) ) );
+      --yCoef: calc(100 * (var(--marDiff) / var(--screenDiff) ) );
+  
+    margin-left: clamp(calc(var(--sMar) * 1rem / 16), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), calc(var(--bMar) * 1rem / 16));
+    margin-right: clamp(calc(var(--sMar) * 1rem / 16), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), calc(var(--bMar) * 1rem / 16));
+    
+  }
+
+
+  /* MARGIN TOP */
+/* ------------------------------- */
+  .margin_T-71-98 {
+    --sFont: 71; /* smallest font size in pixels */
+    --bFont: 98; /* largest font size in pixels */
+    
+    --fontDiff: calc((var(--bFont) * var(--sFactor)) - (var(--sFont) * var(--bFactor)));
+    --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+    --xP1: calc(var(--bFont) / (16 * var(--bFactor)));
+    --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+    --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+    
+    --min: calc(var(--sFont) * 1px);
+    --max: calc(var(--bFont) * 1px);
+
+    margin-top: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+  }
+
+  .margin_T-269-192 {
+
+    --sFont: 192; /* smallest font size in pixels */
+    --bFont: 269; /* largest font size in pixels */
+    
+      --fontDiff: calc((var(--bFont) * var(--sFactor)) - (var(--sFont) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--bFont) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sFont) * 1px);
+      --max: calc(var(--bFont) * 1px);
+  
+      margin-top: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+   
+
+  }
+
+  
