@@ -5,7 +5,7 @@ import styles from './BlogSec.module.css';
 import SmallBot from '../SmallBot/SmallBot';
 import {LandscapeCard, PortraitCard} from '../BlogCards/BlogCards';
 
-function BlogSec(){
+function BlogSec({blogDescription}){
 
     return(
 
@@ -14,7 +14,7 @@ function BlogSec(){
             <div className={styles.description_position}>
                 <div className={`${styles.descriptionContainer}`}>
                     <h2 className={`size-70`}>Blog</h2>
-                    <p className={`size-21`}>Talking about songs, albums, studios, recs and mixes, travels and dreams. Come on and learn to make your song shines in the air.</p>
+                    <p className={`size-21`}>{blogDescription}</p>
                     <SmallBot text="Read Now" colorClass="orangeNormalBot"/>
                 </div> 
             </div>

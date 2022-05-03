@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import styles from './SmallBot.module.css';
 
 
-function SmallBot({text, colorClass}){
+function SmallBot({text, colorClass, link}){
 return(
 
 <div className={styles.width_183_92}>
@@ -11,7 +11,7 @@ return(
 
     <a 
     className={`size-21 ${styles.sBotLink}`} 
-    href="https://www.w3schools.com" 
+    href={link}
     target="_blank"
     >{text}
     </a>

@@ -364,12 +364,12 @@
     }
   }
 
-  @media only screen and (max-width: 490px) {
-    .contactContent > h2{
+  @media only screen and (max-width: 580px) {
+    .contactContent h2{
         display: none;
     }
 
-    .contactContent > ul {
+    .contactContent ul {
         padding: 3.5rem;
 
     }

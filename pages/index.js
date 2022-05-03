@@ -1,17 +1,52 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import NavBar from '../components/NavBar/NavBar';
-import styles from '../styles/Home.module.css'
+import {sanityClient} from "../lib/sanity";
+import imageUrlBuilder from '@sanity/image-url';
+import {PortableText} from '@portabletext/react';
+import {useState, useEffect} from "react";
+import styles from '../styles/Home.module.css';
 
+import Head from 'next/head';
+import NavBar from '../components/NavBar/NavBar';
 import CardsWorks from '../components/CardsWorks/CardsWorks';
 import BigBot from '../components/BigBot/BigBot';
 import SmallBot from '../components/SmallBot/SmallBot';
 import BlogSec from '../components/BlogSec/BlogSec';
 import Footer from '../components/Footer/Footer';
+import { IoLogoDesignernews } from "react-icons/io5";
+
+const builder = imageUrlBuilder(sanityClient);
+function urlFor(source){
+  return builder.image(source)
+}
+
+const sanityQuery = `{
+  "albumInfo": *[_type in ["home"]]{
+  newAlbumLink,
+  newAlbumCover,
+  newAlbumDescription,
+  blogDescription,
+  },
+
+  "mediaInfo": *[_type in ["socialMedia"]]{
+    mediaName,
+    link,
+  },
+
+"worksInfo": *[_type in ["works"]]{
+    albumName,
+    albumYear,
+    albumLink,
+    AlbumCover,
+  
+  }
+}`;
 
 
+export default function Home({ data }) {
 
-export default function Home() {
+  const mediaInfo = data.mediaInfo;
+  const albumInfo = data.albumInfo[0];
+  const works = data.worksInfo;
+
   return (
   <div className={styles.indexClass}>
     <Head>
@@ -38,14 +73,19 @@ export default function Home() {
 
       <div className={styles.width_986_432}>
         <div className={`${styles.albumImgContainer}`}>
-        <img src="/img/home-viny.png" alt="image content" className={`${styles.albumImage}`}></img>
+        
+        <img src={urlFor(albumInfo.newAlbumCover).url()} alt="image content" className={`${styles.albumImage}`}></img>
         </div>
       </div>
 
       <div className={styles.width_986_432}>
         <div className={`${styles.albumDescription} ${styles.margin_BT_102_78}`}>
-            <p className={`size-28p`}>The "Sunny Day" is the first album solo of Rodrigo Francalacci.</p>
-            <p className={`size-28p`}>It's was realeased in 2022 and recorded in the Abbey Road Studio.</p>
+        
+        <div className={`size-28p`}>
+          <PortableText value={albumInfo.newAlbumDescription}/>
+        </div>
+          
+    
         </div>
       </div>
 
@@ -63,9 +103,15 @@ export default function Home() {
       
 
       <div className={`${styles.worksCardsContainer} ${styles.margin_B_42_102}`}>
-        <CardsWorks/>
-        <CardsWorks/>
-        <CardsWorks/>
+
+      {works?.length > 0 && works.map((item) => (
+
+<CardsWorks name={item.albumName} year={item.albumYear} link={item.albumLink} img={item.AlbumCover}/>
+
+))}
+
+       
+        
       </div>
 
     </section>
@@ -91,7 +137,7 @@ export default function Home() {
 
 {/* section 5 - blog */}
     <section className={`${styles.blog}`}>
-     <div><BlogSec/></div>
+     <div><BlogSec blogDescription={albumInfo.blogDescription}/></div>
     </section>
 
 {/* section 6 - contact */}
@@ -102,10 +148,13 @@ export default function Home() {
           <h2 className={`size-70`}>Social Media</h2>
 
           <ul className={`size-49 ${styles.contacList}`}>
-            <li>Spotify</li>
-            <li>Youtube</li>
-            <li>Facebook</li>
-            <li>Instagran</li>
+
+            {mediaInfo?.length > 0 && mediaInfo.map((item) => (
+
+              <li key={item.mediaName}><a href={item.link}>{item.mediaName}</a></li>
+
+            ))}
+            
           </ul>
 
         </div>
@@ -118,10 +167,15 @@ export default function Home() {
     </section>
 
 
-    
-    
-
-
    </div>
   )
 }
+
+export async function getStaticProps(){
+
+  const data = await sanityClient.fetch(sanityQuery);
+
+  return {props: {data}};
+}
+
+// yarn upgrade @sanity/cli 
