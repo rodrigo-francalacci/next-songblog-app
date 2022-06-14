@@ -6,9 +6,12 @@ import '../styles/globals.css'
 import '../styles/typography.css'
 import '../styles/margins.css'
 import '../styles/themes.css'
-import NavBar from '../components/NavBar/NavBar'
 
-// import 'styles/themes.css'
+
+//@ts-ignore
+global.performance = global.performance || {
+  now: () => new Date().getTime(),
+};
 
 
 function MyApp({ Component, pageProps }) {
