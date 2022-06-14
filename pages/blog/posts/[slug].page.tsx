@@ -42,9 +42,15 @@ const contactQuery =`*[_type in ["landpage"]]| order(publishedAt desc){
 export default function Post({ data }) {
 
 
+    const post = data.post;
+    const nextPost = data.nextPost;
+    const previousPost = data.previousPost;
+    const contacts = data.contacts;
+
+
     
 
-    const { post, nextPost, previousPost, contacts } = data; 
+
     const [isOn, setIsOn] = useState(false);
     const [colorTheme, setColorTheme] = useState(["bkgBeige", "blackFont"]);
 
