@@ -28,11 +28,17 @@
 
 .postListItem{
     margin-left: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     margin-top: 0.7rem;
     margin-bottom: 0.7rem;
+    border-radius: 10px;
 }
 
-
+.postListItem:hover{
+    background-color: var(--orange-normal);
+    
+}
 
 
 .tagsContainer{

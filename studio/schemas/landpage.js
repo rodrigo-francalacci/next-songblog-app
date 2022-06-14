@@ -7,6 +7,16 @@ export default{
     type: "document",
     fields:[
         {
+            name: "campaignName",
+            title: "Campaign Name",
+            type: "string",
+        },
+        {
+            name: 'publishedAt',
+            title: 'Published at',
+            type: 'datetime',
+        },
+        {
             name:"home",
             title:"Home",
             type: "object",
@@ -134,13 +144,12 @@ export default{
                
             ]
         },
-        {
-            name: 'publishedAt',
-            title: 'Published at',
-            type: 'datetime',
+
+    ],
+    preview: {
+        select: {
+          title: 'campaignName',
+          subtitle: 'publishedAt',
         },
-
-    
-
-    ]
+      }
 }

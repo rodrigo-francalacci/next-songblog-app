@@ -1,17 +1,14 @@
 import {sanityClient} from "../../lib/sanity";
 import imageUrlBuilder from '@sanity/image-url';
-import {PortableText} from '@portabletext/react';
 import Head from "next/head";
 
 import {motion} from "framer-motion";
 import {useRef, useState, useEffect} from "react";
-import { useRouter } from 'next/router';
 import styles from '../../styles/Blog.module.css';
 
 import Footer from '../../components/Footer/Footer';
 import {LandscapeCard, PortraitCard} from '../../components/BlogCards/BlogCards';
 import NavBar from "../../components/NavBar/NavBar";
-import SmallBot from "../../components/SmallBot/SmallBot";
 import { MobileNavigation } from "../../components/NavBar/Navigation";
 
 import { MdArrowLeft, MdArrowRight } from "react-icons/md";
@@ -41,7 +38,11 @@ const sanityQuery = `{
     "categories": *[_type in ["category"]]| order(title){
         _id,
         title
-    }
+    },
+
+    "camp": *[_type in ["landpage"]]| order(publishedAt desc){
+        emphasisSection,
+       }
 
   }`;
 
@@ -52,7 +53,7 @@ const sanityQuery = `{
 
 export default function Blog({ data }) {
 
-    console.log(data);
+
     const email = data.footer[0].email;
     const phone = data.footer[0].phoneNumber;
 
@@ -62,10 +63,13 @@ export default function Blog({ data }) {
     
     const [width, setWidth] = useState(0); //carousel width constrains
     const carousel = useRef();
+
     
     useEffect(() => {
         setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
     }, []);
+
+
 
     return(
     <div>
@@ -75,7 +79,7 @@ export default function Blog({ data }) {
         <link rel="icon" href="/favicon.ico"/>
     </Head>
 
-    <NavBar campaignTitle={"Album"} currentPage={"home"} categories={data.categories} posts={data.posts}/>
+    <NavBar campaignTitle={data.camp[0].emphasisSection.navName} currentPage={"home"} categories={data.categories} posts={data.posts}/>
         
         <main className={`${styles.main}`}>
 

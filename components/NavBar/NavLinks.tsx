@@ -16,42 +16,42 @@ return(
         animate={animateTo}
         transition={{delay: 0.30}}
         onClick={() => props.isMobile && props.closeMobileMenu()}> 
-        <a className={`size-49`} href="#home">Home</a>
+        <a className={`size-49`} href="/#home">Home</a>
     </motion.li>
 <motion.li
         initial={animateFrom}
         animate={animateTo}
         transition={{delay: 0.30}}
         onClick={() => props.isMobile && props.closeMobileMenu()}> 
-        <a className={`size-49`} href="#campaign">{props.campaignTitle}</a>
+        <a className={`size-49`} href="/#campaign">{props.campaignTitle}</a>
     </motion.li>
 <motion.li
         initial={animateFrom}
         animate={animateTo}
         transition={{delay: 0.45}}
         onClick={() => props.isMobile && props.closeMobileMenu()}> 
-        <a className={`size-49`} href="#works">Works</a>
+        <a className={`size-49`} href="/#works">Works</a>
     </motion.li>
     <motion.li
         initial={animateFrom}
         animate={animateTo}
         transition={{delay: 0.65}}
         onClick={() => props.isMobile && props.closeMobileMenu()}> 
-        <a className={`size-49`} href="#about">About</a>
+        <a className={`size-49`} href="/#about">About</a>
     </motion.li>
     <motion.li
         initial={animateFrom}
         animate={animateTo}
         transition={{delay: 0.65}}
         onClick={() => props.isMobile && props.closeMobileMenu()}> 
-        <a className={`size-49`} href="#blog">Blog</a>
+        <a className={`size-49`} href="/#blog">Blog</a>
     </motion.li>
     <motion.li
         initial={animateFrom}
         animate={animateTo}
         transition={{delay: 0.90}}
         onClick={() => props.isMobile && props.closeMobileMenu()}> 
-        <a className={`size-49`} href="#contact">Contacts</a>
+        <a className={`size-49`} href="/#contact">Contacts</a>
     </motion.li>
 </ul>
     

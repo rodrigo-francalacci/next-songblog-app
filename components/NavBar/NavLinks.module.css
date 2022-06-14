@@ -4,3 +4,7 @@
     color: var(--white);
 }
 
+.NavLinksList a:hover{
+    color: var(--black);
+}
+
