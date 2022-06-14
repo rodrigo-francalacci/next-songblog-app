@@ -62,7 +62,7 @@ export default function Blog({ data }) {
 
     
     const [width, setWidth] = useState(0); //carousel width constrains
-    const carousel = useRef();
+    const carousel = useRef(null);
 
     
     useEffect(() => {
