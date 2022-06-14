@@ -137,7 +137,7 @@ export default function Home( { pageData, postsData } ) {
     </section>
 
 {/* section 4 - about */}
-    <section id="about" className={`${styles.about}`} style={{backgroundImage:`url(${page.bioBkg})`}}>>
+    <section id="about" className={`${styles.about}`} style={{backgroundImage:`url(${page.bioBkg})`}}>
 
 
         <div className={`${styles.aboutContent}`}>
@@ -174,7 +174,7 @@ export default function Home( { pageData, postsData } ) {
 
             {page.socialMedia?.length > 0 && page.socialMedia.map((item) => (
 
-              <li key={item.mediaName}><a href={item.mediaLink} target="_blank">{item.mediaName}</a></li>
+              <li key={item.mediaName}><a href={item.mediaLink} target="_blank" rel="noopener">{item.mediaName}</a></li>
 
             ))}
             
