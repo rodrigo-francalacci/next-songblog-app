@@ -1,3 +1,5 @@
+import { array } from "prop-types"
+
 export default {
   name: 'post',
   title: 'Post',
@@ -18,6 +20,11 @@ export default {
       },
     },
     {
+      name: 'overview',
+      title: 'Overview',
+      type: 'text',
+    },
+    {
       name: 'author',
       title: 'Author',
       type: 'reference',
@@ -35,12 +42,23 @@ export default {
       name: 'categories',
       title: 'Categories',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+      of:[
+        {
+        type: 'reference',
+        to: {type: 'category'},
+        }
+    ],
+
     },
     {
       name: 'publishedAt',
-      title: 'Published at',
+      title: 'Published at',	
       type: 'datetime',
+    },
+    {
+      name: 'location',
+      title: 'Location',
+      type: 'string',
     },
     {
       name: 'body',

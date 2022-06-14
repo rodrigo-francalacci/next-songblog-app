@@ -5,15 +5,18 @@ import { Navigation, MobileNavigation} from './Navigation';
 import styles from './NavBar.module.css';
 import { motion } from 'framer-motion';
 
-function NavBar(){
+function NavBar({campaignTitle, currentPage, categories, posts}){
     const [isOpen, setIsOpen] = useState(false);
 
+
+
     return(
-      <div className={styles.navBarContainer}> 
+      <div className={`noto-serif ${styles.navBarContainer}`}> 
           <Navigation />
-          <MobileNavigation />
+          <MobileNavigation campaignTitle={campaignTitle} currentPage={currentPage} categories={categories} posts={posts}/>
       </div>
     )
 }
 
 export default NavBar
+

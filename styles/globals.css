@@ -9,6 +9,7 @@
 :root{
 /* Font families */
 --font-notoserif: 'Noto Serif Display', -apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif;
+--font-dmsans: 'DM Sans', sans-serif;
 
 /* colors */
 --orange-dark: hsla(18, 92%, 43%, 1);
@@ -25,7 +26,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: var(--font-notoserif);
+  font-family: var(--font-dmsans);
   /* MacOS font smoothing */
   /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
@@ -57,4 +58,27 @@ button {
     cursor: pointer;
   }
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+
+    scrollbar-width: none;
+    scrollbar-color: var(--orange-dark) #000000;
+  }
+
+  /* Chrome, Edge, and Safari */
+ * ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--black);
+  }
+
+ *::-webkit-scrollbar-thumb {
+    background-color: var(--orange-normal);
+    border-radius: 10px;
+    border: 2px solid var(--black);
+  }
 

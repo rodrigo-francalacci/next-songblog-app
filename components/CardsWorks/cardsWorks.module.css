@@ -4,7 +4,12 @@
     align-items: center;
     background-color: var(--orange-normal);
     width: fit-content;
+    transition: transform .2s;
 }
+
+.cwContainer:hover {
+    transform: scale(1.03); 
+  }
 
     .cwImgContainer{
         width: 100%;
@@ -44,12 +49,16 @@
             .cwAlbumName{
                 display: inline;
                 background-color: inherit;
-               
+                text-transform: uppercase;
+                font-weight: 700;
+                
             }
 
             .cwAlbumYear{
                 display: inline;
                 background-color: inherit;
+                font-weight: 700;
+                
                
             }
         
@@ -76,12 +85,32 @@
   
       width: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
 
+     /* calc max-width for a given height */
+      --bHeight: 1117;
+      --sHeight: 600;
+      --heightDiff: calc(var(--bHeight) - var(--sHeight));
+
+      --wForMaxH: var(--sMax);
+      --wForMinH: 216;
+
+      --wDiff: calc((var(--wForMaxH) * var(--sFactor)) - (var(--wForMinH) * var(--bFactor)));
+      --yCoef_: calc(100 * (var(--wDiff) / var(--heightDiff) ) );
+
+      --xP1_: calc(var(--wForMaxH) / (16 * var(--bFactor)));
+      --xP2_: calc(var(--bHeight) / (1600 * var(--bFactor)));
+      --xCoef_: calc(var(--xP1_) - (var(--yCoef_) * var(--xP2_)));
+
+      --min_: calc(var(--wForMinH) * 1px);
+      --max_: calc(var(--wForMaxH) * 1px);
+  
+      max-width: clamp(var(--min_), calc( var(--xCoef_)*1rem + var(--yCoef_)*1vh), var(--max_));
+
   }
 
-  .margin_T_102_42 {
+  .margin_T_71_37 {
 
-    --sMin: 42; /* smallest width size in pixels */
-    --sMax: 102; /* largest width size in pixels */
+    --sMin: 37; /* smallest width size in pixels */
+    --sMax: 71; /* largest width size in pixels */
     
       --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
       --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
@@ -120,8 +149,12 @@
   /* Media Query */
 
   @media only screen and (max-width: 630px) {
-    .cwAlbumInfo {
+    .cwAlbumYear {
       display: none;
+    }
+    
+    .cwContent{
+
     }
 
     .cwContainer{

@@ -1,8 +1,9 @@
 .footerContainer{
     width: 100%;
-    min-height: 18.75rem;
-    margin:0 auto;
+    margin: 0 auto;
+    font-weight: 500;
 }
+ 
 
     .footerBar{
         border-style: solid;
@@ -20,15 +21,16 @@
         align-items: flex-start;
     }
 
-        .footerContactInfo{
-
+        .footerContactInfo h2{
+            font-family: var(--font-notoserif);
         }
 
         .footerContactInfo p{
-            color: var(--white);
+           
         }
 
         .footerPolicyInfo{
+            margin-top: 15px;
             display: flex;
             justify-content: center;
             align-items: flex-start;

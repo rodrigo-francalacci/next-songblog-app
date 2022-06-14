@@ -6,6 +6,11 @@
   --screenDiff: calc((var(--bScreen) * var(--sFactor)) - (var(--sScreen) * var(--bFactor)));
 }
 
+.noto-serif{font-family: var(--font-notoserif);}
+.dm-sams{font-family: var(--font-dmsans);}
+
+
+
 
 /* HTML and BODY clamp calculation */
 html, body {
@@ -48,7 +53,7 @@ html, body {
 
     /* Other properties */
     font-family: var(--font-notoserif);
-    font-weight: 500;
+    font-weight: 400;
     /* letter-spacing: -0.04em; */
 
   }
@@ -57,11 +62,11 @@ html, body {
   .size-49{
     /* font-size: 3.0625rem; */
     font-size: 49px;
-    font-family: var(--font-notoserif);
-    font-weight: 500;
+    font-weight: 400;
     line-height: 4.1875rem;
     /* letter-spacing: -0.04em; */
   }
+
 
  /*album session title*/
   .size-49a{
@@ -89,8 +94,7 @@ html, body {
     line-height: clamp(var(--min) * var(--p), calc( var(--xCoef)*1rem + var(--yCoef)*1vw ) * var(--p), var(--max) * var(--p));
 
     /* Other properties */
-    font-family: var(--font-notoserif);
-    font-weight: 500;
+    font-weight: 400;
     /* letter-spacing: -0.04em; */
 
   }
@@ -98,8 +102,7 @@ html, body {
   .size-42{
     /* font-size: 3.0625rem; */
     font-size: 2.0192rem;
-    font-family: var(--font-notoserif);
-    font-weight: 500;
+    font-weight: 400;
     line-height: 3.3653rem;
     /* letter-spacing: -0.04em; */
   }
@@ -130,8 +133,7 @@ html, body {
       line-height: clamp(var(--min) * var(--p), calc( var(--xCoef)*1rem + var(--yCoef)*1vw ) * var(--p), var(--max) * var(--p));
   
       /* Other properties */
-      font-family: var(--font-notoserif);
-      font-weight: 500;
+      font-weight: 400;
       /* letter-spacing: -0.04em; */
   
     }
@@ -161,8 +163,7 @@ html, body {
     line-height: clamp(var(--min) * var(--p), calc( var(--xCoef)*1rem + var(--yCoef)*1vw ) * var(--p), var(--max) * var(--p));
   
     /* Other properties */
-    font-family: var(--font-notoserif);
-    font-weight: 500;
+    font-weight: 400;
     /* line-height: 1.8125rem; */
     /* letter-spacing: -0.04em; */
 
@@ -172,7 +173,7 @@ html, body {
     .size-28n{
       font-size: 28px;
       font-family: var(--font-notoserif);
-      font-weight: 500;
+      font-weight: 400;
       line-height: 38px;
       /* letter-spacing: -0.04em; */
     }
@@ -196,16 +197,34 @@ html, body {
     
         font-size:  clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
 
-    /* line-height calculation */
-    --bH: 28.6; /* line-height in pixels for the big font-size */
-    --p: calc(var(--bH) / var(--bFont)); /* percentage of the font-size */
-    line-height: clamp(var(--min) * var(--p), calc( var(--xCoef)*1rem + var(--yCoef)*1vw ) * var(--p), var(--max) * var(--p));
-  
     /* Other properties */
-    font-family: var(--font-notoserif);
-    font-weight: 500;
-    /* line-height: 1.8125rem; */
+    font-weight: 400;
     /* letter-spacing: -0.04em; */
+
+  }
+
+  .size-21a{
+     /* Font size calculation */
+     --sFont: 10; /* smallest font size in pixels */
+     --bFont: 21; /* largest font size in pixels */
+     
+         --fontDiff: calc((var(--bFont) * var(--sFactor)) - (var(--sFont) * var(--bFactor)));
+         --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+ 
+         --xP1: calc(var(--bFont) / (16 * var(--bFactor)));
+         --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+         --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+ 
+         --min: calc(var(--sFont) * 1px);
+         --max: calc(var(--bFont) * 1px);
+     
+         font-size:  clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+ 
+    
+   
+     /* Other properties */
+     font-weight: 400;
+     /* letter-spacing: -0.04em; */
 
   }
 
@@ -234,10 +253,11 @@ html, body {
       line-height: clamp(var(--min) * var(--p), calc( var(--xCoef)*1rem + var(--yCoef)*1vw ) * var(--p), var(--max) * var(--p));
     
       /* Other properties */
-      font-family: var(--font-notoserif);
-      font-weight: 500;
+      font-weight: 400;
       /* line-height: 1.8125rem; */
       /* letter-spacing: -0.04em; */
   
     }
+
+
 

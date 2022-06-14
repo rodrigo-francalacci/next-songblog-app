@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import styles from './Footer.module.css';
 
 
-function Footer({bkgColor}){
+function Footer({bkgColor, contactColor, email, phoneNumber}){
 return(
 
 <div className={`${styles.footerContainer} ${bkgColor}`}>
@@ -14,8 +14,8 @@ return(
 
             <div className={`${styles.footerContactInfo} ${styles.margin_R_180_0}`}>
                 <h2 className={`size-42`}>Rodrigo Francalacci</h2>
-                <p className={`size-21`}>email adress</p>
-                <p className={`size-21`}>phone number</p>
+                <p className={`size-21 ${contactColor}`}>{email}</p>
+                <p className={`size-21 ${contactColor}`}>{phoneNumber}</p>
             </div>
 
             <div className={`${styles.footerPolicyInfo}`}>

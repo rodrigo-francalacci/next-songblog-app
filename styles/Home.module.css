@@ -9,7 +9,6 @@
         min-height: 100vh;
         width: 100%;
    
-        background-image: url("/img/home-cover.png");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -38,6 +37,8 @@
 
         .albumTitle h2{
             margin-bottom: 24px;
+            margin-top: 4.5rem;
+            font-family: var(--font-notoserif);
         }
 
         .albumImgContainer{
@@ -45,7 +46,6 @@
             padding-top: 68%; /* H:W Aspect Ratio */
             position: relative; /* If you want text inside of it */
             background-color: inherit;
-            margin-top: 95px;
         }
 
         .albumImage{
@@ -92,6 +92,7 @@
         .works h2{
             color: var(--black);
             width: fit-content;
+            font-family: var(--font-notoserif)
         }
 
         .worksCardsContainer{
@@ -102,9 +103,10 @@
     .about{
         min-height: 100vh;
         width: 100%;
+        display: flex;
+        align-items: center;
    
-        background-image: url("/img/about-bkg.png");
-        background-position: center;
+        background-position: right;
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -114,10 +116,6 @@
             position: relative;
         }
 
-        .aboutContent h2{
-            color: var(--black);
-        }
-
         .aboutContent p{
             margin-top: 1.58rem;
         }
@@ -125,10 +123,11 @@
         
 
     .blog{
-        min-height: 100vh ;
+        min-height: 100vh;
         width: 100%;
         background-color: var(--beige);
     }
+
 
     .contact{
         min-height: 100vh ;
@@ -137,6 +136,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        font-family: var(--font-notoserif);
     }
 
         .contactContent{
@@ -147,7 +147,6 @@
             align-content: center;
             align-items: center;
             flex-wrap: wrap;
-    
         }
 
         .contactContent > h2 {
@@ -156,76 +155,65 @@
 
         .contactContent > ul {
             padding: 4.66rem;
-
         }
 
         .contacList{
             color: var(--white);
-            
         }
 
     .footer{
         width: 100%;
         margin: 0 auto;
-        background-color: cadetblue;
     }
 
 /* Clamps */
 .margin_B_240_275 {
 
-    --sMin: 275; /* smallest width size in pixels */
-    --sMax: 240; /* largest width size in pixels */
-    
-      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
-      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+      /* calc max-width for a given height */
+      --bHeight: 1117;
+      --sHeight: 500;
+      --heightDiff: calc(var(--bHeight) - var(--sHeight));
 
-      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
-      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
-      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+      --wForMaxH: 240;
+      --wForMinH: 70;
 
-      --min: calc(var(--sMin) * 1px);
-      --max: calc(var(--sMax) * 1px);
+      --wDiff: calc((var(--wForMaxH) * var(--sFactor)) - (var(--wForMinH) * var(--bFactor)));
+      --yCoef_: calc(100 * (var(--wDiff) / var(--heightDiff) ) );
+
+      --xP1_: calc(var(--wForMaxH) / (16 * var(--bFactor)));
+      --xP2_: calc(var(--bHeight) / (1600 * var(--bFactor)));
+      --xCoef_: calc(var(--xP1_) - (var(--yCoef_) * var(--xP2_)));
+
+      --min_: calc(var(--wForMinH) * 1px);
+      --max_: calc(var(--wForMaxH) * 1px);
   
-      margin-bottom: clamp(var(--max), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--min));
+      margin-bottom: clamp(var(--min_), calc( var(--xCoef_)*1rem + var(--yCoef_)*1vh), var(--max_));
    
   }
 
-.height_97_143{
-    --sMin: 143; /* smallest width size in pixels */
-    --sMax: 93; /* largest width size in pixels */
-    
-      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
-      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
-
-      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
-      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
-      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
-
-      --min: calc(var(--sMin) * 1px);
-      --max: calc(var(--sMax) * 1px);
-  
-      height: clamp(var(--max), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--min));
-   
-
-}
 
   .margin_BT_102_78 {
 
-    --sMin: 78; /* smallest width size in pixels */
-    --sMax: 102; /* largest width size in pixels */
-    
-      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
-      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+      /* calc margin bot/top for a given screen height */
+      --bHeight: 1117;
+      --sHeight: 800;
+      --heightDiff: calc(var(--bHeight) - var(--sHeight));
 
-      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
-      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
-      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+      --wForMaxH: 102;
+      --wForMinH: 15;
 
-      --min: calc(var(--sMin) * 1px);
-      --max: calc(var(--sMax) * 1px);
+      --wDiff: calc((var(--wForMaxH) * var(--sFactor)) - (var(--wForMinH) * var(--bFactor)));
+      --yCoef_: calc(100 * (var(--wDiff) / var(--heightDiff) ) );
+
+      --xP1_: calc(var(--wForMaxH) / (16 * var(--bFactor)));
+      --xP2_: calc(var(--bHeight) / (1600 * var(--bFactor)));
+      --xCoef_: calc(var(--xP1_) - (var(--yCoef_) * var(--xP2_)));
+
+      --min_: calc(var(--wForMinH) * 1px);
+      --max_: calc(var(--wForMaxH) * 1px);
   
-      margin-bottom: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
-      margin-top: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+      margin-bottom: clamp(var(--min_), calc( var(--xCoef_)*1rem + var(--yCoef)*1vh), var(--max_));
+      margin-top: clamp(var(--min_), calc( var(--xCoef_)*1rem + var(--yCoef)*1vh), var(--max_));
    
   }
 
@@ -267,22 +255,6 @@
    
   }
 
-  .margin_T_253_170{
-    --sMin: 170; /* smallest width size in pixels */
-    --sMax: 253; /* largest width size in pixels */
-    
-      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
-      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
-
-      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
-      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
-      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
-
-      --min: calc(var(--sMin) * 1px);
-      --max: calc(var(--sMax) * 1px);
-  
-      top: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
-  }
 
   .margin_L_933_150{
     --sMin: 90; /* smallest width size in pixels */
@@ -338,6 +310,7 @@
   }
 
   .width_986_432{
+    /* calc the width based on the screen width */
     --sMin: 300; /* smallest width size in pixels */
     --sMax: 748; /* largest width size in pixels */
     
@@ -352,6 +325,28 @@
       --max: calc(var(--sMax) * 1px);
   
       width: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+
+      /* calc max-width for a given height */
+      --bHeight: 1117;
+      --sHeight: 400;
+      --heightDiff: calc(var(--bHeight) - var(--sHeight));
+
+      --wForMaxH: var(--sMax);
+      --wForMinH: 200;
+
+      --wDiff: calc((var(--wForMaxH) * var(--sFactor)) - (var(--wForMinH) * var(--bFactor)));
+      --yCoef_: calc(100 * (var(--wDiff) / var(--heightDiff) ) );
+
+      --xP1_: calc(var(--wForMaxH) / (16 * var(--bFactor)));
+      --xP2_: calc(var(--bHeight) / (1600 * var(--bFactor)));
+      --xCoef_: calc(var(--xP1_) - (var(--yCoef_) * var(--xP2_)));
+
+      --min_: calc(var(--wForMinH) * 1px);
+      --max_: calc(var(--wForMaxH) * 1px);
+  
+      max-width: clamp(var(--min_), calc( var(--xCoef_)*1rem + var(--yCoef_)*1vh), var(--max_));
+
+
   }
 
   /* Media Query */
@@ -374,3 +369,9 @@
 
     }
   }
+
+  @media (orientation: portrait) {
+    .albumDescription{text-align: center;}
+    .margin_L_933_150{margin: 0 auto; text-align: center; width: fit-content;}
+  }
+

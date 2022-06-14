@@ -14,7 +14,7 @@ function CardsWorks({name, year, link, img}){
 
     return(
 
-      <div className={`${styles.cwContainer} ${styles.margin_T_102_42}`}>
+      <div className={`${styles.cwContainer} ${styles.margin_T_71_37}`}>
 
         <div className={styles.width_493_216}>
           <div className={`${styles.cwImgContainer}`}>

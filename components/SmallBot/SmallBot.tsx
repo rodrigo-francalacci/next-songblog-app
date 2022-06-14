@@ -6,18 +6,17 @@ import styles from './SmallBot.module.css';
 function SmallBot({text, colorClass, link}){
 return(
 
-<div className={styles.width_183_92}>
-<div className={`${styles.sBotContainer} ${styles.height_42_22} ${colorClass}`}>
 
-    <a 
-    className={`size-21 ${styles.sBotLink}`} 
-    href={link}
-    target="_blank"
-    >{text}
-    </a>
+    <div className={`${styles.sBotContainer} ${colorClass}`}>
 
-</div>
-</div>
+        <a 
+        className={`size-21 dm-sams ${styles.sBotLink}`} 
+        href={link}
+        target="_blank"
+        >{text}
+        </a>
+
+    </div>
 
 )
 }

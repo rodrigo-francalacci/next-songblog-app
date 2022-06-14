@@ -1,0 +1,169 @@
+.blogSecContainer{
+    width: 100%;
+    height: fit-content;
+    min-height: 100vh;
+    background-color: var(--beige);
+    position: relative;
+    
+
+}
+
+    .gridContainer{
+        margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        display: grid;
+        grid-template-areas: 
+        ". . . . . . . ." 
+        ". . d d . b b ." 
+        ". a a . . . . ." 
+        ". a a . c c . ."
+        ;
+        grid-template-rows: calc(70px + 2.74rem) 36.7vh 6.44vh auto;
+        grid-template-columns: 12.66vw 6.87vw 30.92vw 5.95vw 8.55vw 11.67vw 8.55vw auto;
+        
+    }
+
+        .postA{
+            width: 100%;
+            grid-area: a;
+        }
+        .postB{
+            width: 100%;
+            grid-area: b;
+        }
+        .postC{
+            width: 100%;
+            grid-area: c;
+        }
+
+
+    .descriptionContainer{
+        margin-top: 2rem;
+        max-width: 25.72rem;
+        grid-area: d;
+    }
+
+    .descriptionContainer p{
+        margin-top: 1.3rem;
+        margin-bottom: 0.67rem;
+    }
+
+
+/*   Media Query */
+
+@media (max-height: 1017px) {
+
+
+    .descriptionContainer{
+        margin-top: 2rem;
+    }
+
+    .postA{width: 90%;}
+    .postB{width: 90%; margin-top: 1.5rem;}
+    .postC{width: 90%;}
+
+    .gridContainer{
+
+        display: grid;
+        grid-template-areas: 
+        ". d d d d . . . ." 
+        ". d d d d . b b ." 
+        ". a a . c c b b ." 
+        ". a a . c c . . ."
+        ;
+        grid-template-rows: 4.375rem 30.7vh 8.44vh auto;
+        grid-template-columns: 12.66vw 6.87vw 30.92vw 5.95vw 8.55vw 11.67vw 8.55vw 11.67vw auto;
+        
+    }
+  }
+
+  @media (orientation: portrait) {
+    .gridContainer{
+        grid-template-areas: 
+        ". . . ."
+        "d d d d"
+        ". a a ."
+        ". b c ."
+        ;
+        grid-template-rows: 5rem auto auto auto;
+        grid-template-columns: 13.85vw 36.14vw 36.14vw auto;
+        position:static;
+        top:auto;
+        transform:none;
+    }
+
+    .descriptionContainer{
+        
+
+
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: calc(1.75vh + 0.7rem);
+        padding-left: 1rem;
+        padding-right: 1rem;
+        justify-self: center;
+    }
+
+    .postA{
+        justify-self: center;
+        width: 100%;
+        margin-bottom: calc(1.75vh + 0.5rem);
+
+    }
+    .postB{
+        margin-top: 0;
+        width: 92%;
+        margin-bottom: 1.5rem;
+    }
+    .postC{
+        justify-self: end;
+        width: 92%;
+        margin-bottom: 1.5rem;
+    }
+
+
+
+  }
+
+  /* Maximum aspect ratio */
+@media screen and (min-aspect-ratio: 540/720) and (orientation: portrait) {
+
+    .gridContainer{
+        position:static;
+    }
+
+
+    .descriptionContainer{
+        margin-top: 0;
+        max-width: 90%;
+    }
+
+    .postA{width: 90%; justify-self: center;}
+    .postB{width: 90%; margin-top: 0; margin-bottom: 1.5rem;}
+    .postC{width: 90%; margin-bottom: 1.5rem;}
+
+
+  }
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+

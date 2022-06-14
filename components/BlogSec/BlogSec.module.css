@@ -1,7 +1,7 @@
 .blogSecContainer{
     width: 100%;
     height: 100vh;
-    min-height: 53.70rem;
+   
     background-color: var(--beige);
     position: relative;
 }
@@ -62,7 +62,7 @@
   .description_position{
     width: fit-content;
     position: absolute;
-    top: 167px;
+    top: 14.9507vh;
 
       /* Left postion calculation */
     --sMin: -80; /* smallest width size in pixels */
@@ -84,7 +84,7 @@
   .card1_position{
     width: fit-content;
     position: absolute;
-    top: 127px;
+    top: 11.3697vh;
 
       /* Left postion calculation */
     --sMin: 792/3; /* smallest width size in pixels */
@@ -106,7 +106,7 @@
   .card2_position{
     width: fit-content;
     position: absolute;
-    top: 537px;
+    top: 48.0752vh;
 
       /* Left postion calculation */
     --sMin: -60; /* smallest width size in pixels */
@@ -128,7 +128,7 @@
   .card3_position{
     width: fit-content;
     position: absolute;
-    top:609px;
+    top:54.5210vh;
 
       /* Left postion calculation */
     --sMin: 782/2.9; /* smallest width size in pixels */
@@ -150,6 +150,48 @@
 
 
   /* Media Query */
+  @media only screen and (max-height: 1117px) {
+
+    .width_350 {
+      --k: 0.7;
+      --sMin: calc(350 * var(--k) * 0.5); /* smallest width size in pixels */
+      --sMax: calc(350 * var(--k)); /* largest width size in pixels */
+      
+        --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+        --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+  
+        --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+        --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+        --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+  
+        --min: calc(var(--sMin) * 1px);
+        --max: calc(var(--sMax) * 1px);
+    
+        width: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+  
+    }
+
+    .width_620 {
+
+      --k: 0.7;
+      --sMin: calc(620 * var(--k) * 0.5); /* smallest width size in pixels */
+      --sMax: calc(620 * var(--k)); /* largest width size in pixels */
+      
+        --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+        --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+  
+        --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+        --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+        --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+  
+        --min: calc(var(--sMin) * 1px);
+        --max: calc(var(--sMax) * 1px);
+    
+        width: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+  
+    }
+
+  }
 
   @media only screen and (max-width: 720px) {
     .blogSecContainer {
@@ -207,3 +249,13 @@
         margin: 0 auto;
     }
   }
+
+  @media only screen and (min-width: 1730px) {
+    .blogSecContainer{
+        margin-left: calc((100vw - 1730px) / 2);
+        width: 1730px;
+        
+    }
+  }
+
+  

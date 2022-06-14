@@ -1,0 +1,136 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: var(--beige);
+}
+
+    .head{
+        margin-top: 16.29vh;
+        width: 100%;
+
+    }
+
+        .head div{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+        
+        .head div:last-child{
+            cursor: pointer;
+        }
+
+
+        .head h2{
+            margin-bottom: 2.4741vh;
+            font-weight: 500;
+            width: fit-content;
+        }
+
+
+        .head p{
+            text-align: justify;
+            font-weight: 400;
+            width: 100%;
+        }
+    
+    .mainPost{
+/*         max-width: 50.96rem;
+        width: 85%; */
+        margin-top: 3.5810vh;
+        margin-bottom:12.08vh;
+    }
+
+    .morePosts{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+        .morePosts h3{
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+    .carouselContainer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 8.59vh;
+        margin-bottom: 16.204vh;
+        align-items: center;
+    }
+
+        .arrowIcon{
+            color: var(--orange-dark);
+        }
+        .carousel{
+            cursor: grab;
+            overflow: hidden;
+            max-width: 57.30rem;
+            width: 85%;
+
+        }
+
+            .inner_carousel{
+                display: flex;
+
+            }
+
+            .itemCarousel{
+                min-width: 20.1923rem;
+                padding-left: 1.7067rem;
+                padding-right: 1.7067rem;
+
+
+            }
+
+.widthblog{
+       
+   width: 85%;
+
+   /* calc max-width for a given height */
+   --bHeight: 1117;
+   --sHeight: 600;
+   --heightDiff: calc(var(--bHeight) - var(--sHeight));
+
+   --wForMaxH: 1061;
+   --wForMinH: 400;
+
+   --wDiff: calc((var(--wForMaxH) * var(--sFactor)) - (var(--wForMinH) * var(--bFactor)));
+   --yCoef_: calc(100 * (var(--wDiff) / var(--heightDiff) ) );
+
+   --xP1_: calc(var(--wForMaxH) / (16 * var(--bFactor)));
+   --xP2_: calc(var(--bHeight) / (1600 * var(--bFactor)));
+   --xCoef_: calc(var(--xP1_) - (var(--yCoef_) * var(--xP2_)));
+
+   --min_: calc(var(--wForMinH) * 1px);
+   --max_: calc(var(--wForMaxH) * 1px);
+
+   max-width: clamp(var(--min_), calc( var(--xCoef_)*1rem + var(--yCoef_)*1vh), var(--max_));
+}
+
+
+/* CLAMPS */
+
+
+/* MEDIA QUERIES */
+@media (orientation: portrait) {
+    .head h2{text-align: center;}
+    .head p{text-align: center; margin-top: 1.5rem;}
+    
+    .head div{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .head div h2{
+        margin-bottom: 1.5rem;
+    }
+  }
+

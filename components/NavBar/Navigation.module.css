@@ -7,23 +7,69 @@ width: 100%;
     justify-content: center;
     align-items: center;
     position: absolute;
-    height: 70px;
+    
+    height: 3.36rem;
     background-color: var(--orange-dark);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
     }
 
     .menuOpened{
     display: flex;
+    z-index: 500;
     justify-content: center;
     align-content: center;
     position: fixed;
     width: 100%;
     background-color: var(--orange-dark);
+  }
+
+    .blogMenuContainer{
+    display: flex;
+    z-index: 500;
+    justify-content: center;
+    align-content: center;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+  }
+
+
+    .blogMenuClosed{
+      width:fit-content;
+      height: fit-content;
+      border-style: solid;
+      border-color: black;
+      border-width: 2px;
+      display: flex;
+      z-index: 500;
+      justify-content: center;
+      align-items: center;
+      position: static;
+      background-color: var(--orange-dark);
+      cursor: pointer;
     }
 
-    .contentContainer{
+    .blogMenuClosed p {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    
+
+    .homeContentContainer{
         height: 100vh;
         background-color: inherit;
     }
+
+    .blogContentContainer{
+      min-height: 100vh;
+      height: fit-content;
+      background-color: var(--beige);
+      width: 100%;
+  }
 
         .menuContent{
         display: flex;
@@ -91,8 +137,8 @@ width: 100%;
 
 .right_240_0{
 
-    --min: 0; /* margin left in the smallest screen (pixels)*/
-    --max: 240; /* margin left in the biggest sreen (pixels) */
+    --min: 0; 
+    --max: 80;
     
       --marDiff: calc(var(--max) - var(--min));
       --xCoefUp: calc( var(--min) * var(--screenDiff) - var(--marDiff) * var(--sScreen) );
@@ -105,26 +151,33 @@ width: 100%;
 
 .paddingT_269_192 {
 
-    --sPad: 192; /* smallest padding in pixels */
-    --bPad: 269; /* largest padding size in pixels */
+          /* calc max-width for a given height */
+          --bHeight: 1117;
+          --sHeight: 600;
+          --heightDiff: calc(var(--bHeight) - var(--sHeight));
     
-      --fontDiff: calc((var(--bPad) * var(--sFactor)) - (var(--sPad) * var(--bFactor)));
-      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+          --wForMaxH: 269;
+          --wForMinH: 50;
+    
+          --wDiff: calc((var(--wForMaxH) * var(--sFactor)) - (var(--wForMinH) * var(--bFactor)));
+          --yCoef_: calc(100 * (var(--wDiff) / var(--heightDiff) ) );
+    
+          --xP1_: calc(var(--wForMaxH) / (16 * var(--bFactor)));
+          --xP2_: calc(var(--bHeight) / (1600 * var(--bFactor)));
+          --xCoef_: calc(var(--xP1_) - (var(--yCoef_) * var(--xP2_)));
+    
+          --min_: calc(var(--wForMinH) * 1px);
+          --max_: calc(var(--wForMaxH) * 1px);
+      
+          padding-top: clamp(var(--min_), calc( var(--xCoef_)*1rem + var(--yCoef_)*1vh), var(--max_));
 
-      --xP1: calc(var(--bPad) / (16 * var(--bFactor)));
-      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
-      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
 
-      --min: calc(var(--sPad) * 1px);
-      --max: calc(var(--bPad) * 1px);
-  
-      padding-top: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
    
   }
 
 
 
-@media only screen and (max-width: 720px) {
+@media only screen and (orientation: portrait) {
     .menuRodrigo{
        display:none;
     } 

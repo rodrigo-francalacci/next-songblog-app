@@ -1,11 +1,11 @@
 {
   "root": true,
-  "project": {
-    "name": "next-songblog-app"
-  },
   "api": {
     "projectId": "q8dj5r4a",
     "dataset": "production"
+  },
+  "project": {
+    "name": "next-songblog-app"
   },
   "plugins": [
     "@sanity/base",
