@@ -8,11 +8,6 @@ import '../styles/margins.css'
 import '../styles/themes.css'
 
 
-//@ts-ignore
-global.performance = global.performance || {
-  now: () => new Date().getTime(),
-};
-
 
 function MyApp({ Component, pageProps }) {
 
