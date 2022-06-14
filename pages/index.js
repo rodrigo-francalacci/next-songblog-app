@@ -174,7 +174,7 @@ export default function Home( { pageData, postsData } ) {
 
             {page.socialMedia?.length > 0 && page.socialMedia.map((item) => (
 
-              <li key={item.mediaName}><a href={item.mediaLink} target="_blank" rel="noopener">{item.mediaName}</a></li>
+              <li key={item.mediaName}><a href={item.mediaLink} target="_blank"  rel="noreferrer">{item.mediaName}</a></li>
 
             ))}
             
