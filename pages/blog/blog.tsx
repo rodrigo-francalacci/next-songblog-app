@@ -64,12 +64,18 @@ export default function Blog({ data }) {
     const [width, setWidth] = useState(0); //carousel width constrains
     const carousel = useRef(null);
 
-    
-    useEffect(() => {
+    function handleSize(){
         setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+    }
+
+    useEffect(() => {
+        handleSize();
     }, []);
 
 
+/*     useEffect(() => {
+        window.addEventListener('resize', handleSize)
+    }, []); */
 
     return(
     <div>

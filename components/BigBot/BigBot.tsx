@@ -13,6 +13,7 @@ return(
     className={`size-35 dm-sams ${styles.sBotLink}`} 
     href={link} 
     target="_blank"
+    rel="noreferrer"
     >{text}
     </a>
 

@@ -15,7 +15,7 @@ function BlogSec({blogDescription, post1, post2, post3 }){
                 <div className={`${styles.descriptionContainer}`}>
                     <h2 className={`size-70`}>Blog</h2>
                     <p className={`size-21`}>{blogDescription}</p>
-                    <SmallBot text="Read Now" link={'../../blog/blog/'} colorClass="orangeNormalBot"/>
+                    <SmallBot text="Read Now" link={'/blog/blog/'} colorClass="orangeNormalBot"/>
                 </div> 
             </div>
 

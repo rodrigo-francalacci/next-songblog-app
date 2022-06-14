@@ -20,8 +20,8 @@ export function LandscapeCard({props}){
         <img src={urlFor(props.mainImage).url()} alt={props.title} className={`${styles.cImage}`}></img>
         </div>
         
-        <Link href={`../../blog/posts/${props.slug.current}`}>
-        <a target="_blank">
+        <Link href={`/blog/posts/${props.slug.current}`}>
+        <a target="_blank" rel="noreferrer">
 
         <div className={`size-21 ${styles.cText}`}>
             <p>{props.title}</p>
@@ -47,8 +47,8 @@ export function PortraitCard({props}){
             <img src={urlFor(props.mainImage).width(350).height(350).url()} alt={props.title} className={`${styles.cImage}`}></img>
         </div>
         
-        <Link href={`../../blog/posts/${props.slug.current}`}>
-          <a target="_blank">
+        <Link href={`/blog/posts/${props.slug.current}`}>
+          <a target="_blank" rel="noreferrer">
           
           <div className={`size-21a ${styles.cText}`}>
               <p>{props.title}</p>

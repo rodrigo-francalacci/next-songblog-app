@@ -2,7 +2,6 @@ import {sanityClient} from "../../../lib/sanity";
 import imageUrlBuilder from '@sanity/image-url';
 import {PortableText} from '@portabletext/react';
 import moment from 'moment';
-import { usePreviewSubscription } from "../../../lib/sanity";
 import { motion } from "framer-motion";
 
 import {useState, useEffect} from "react";
@@ -126,7 +125,7 @@ return(
 
         <div className={styles.tagsContainer}>
                 {post.categories?.length > 0 && post.categories.map((item) => (
-                <span className={`orangeDarkfont size-21 ${styles.tag}`}>#{item.title}</span>
+                <span key={item.title} className={`orangeDarkfont size-21 ${styles.tag}`}>#{item.title}</span>
                 ))}
         </div>
 
@@ -134,7 +133,7 @@ return(
     </article>
 
     <div className={`size-28 ${styles.morePosts}`}>
-        <Link href={`./${previousPost.slug.current}`}>
+        <Link href={`/blog/posts/${previousPost.slug.current}`}>
         <a>
             <MdArrowLeft size='120px' className={styles.arrowIcon}/>
         </a>
@@ -142,7 +141,7 @@ return(
             
         <p>More Posts</p>
 
-        <Link href={`./${nextPost.slug.current}`}>
+        <Link href={`/blog/posts/${nextPost.slug.current}`}>
         <a>
             <MdArrowRight size='120px' className={styles.arrowIcon}/>
         </a>
