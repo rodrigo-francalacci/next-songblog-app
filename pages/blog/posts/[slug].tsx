@@ -39,50 +39,14 @@ const contactQuery =`*[_type in ["landpage"]]| order(publishedAt desc){
 
 
 
-export default function Post({ nextPost }) {
-
-
-    
-    const [isOn, setIsOn] = useState(false);
-    const [colorTheme, setColorTheme] = useState(["bkgBeige", "blackFont"]);
-
-
-    function Switch({ isOn, ...props }) {
-        const className = `switch ${isOn ? "on" : "off"}`;
-
-        return (
-          <motion.div animate className={className} {...props}>
-            <motion.div animate />
-          </motion.div>
-        );
-      }
-
-      function handleSwitch(){
-        setIsOn(!isOn);
-
-        switch (isOn) {
-            case false:
-                setColorTheme(["bkgBlack", "beigeFont"])        
-                break;
-
-            case true:
-                setColorTheme(["bkgBeige", "blackFont"])
-                break;
-        
-            default:
-                setColorTheme(["bkgBeige", "blackFont"])
-                break;
-        }
-      }
-
-    
+export default function Post({ slug }) {
 
 
 return(
 
 <div>
 
-    {nextPost.title}
+    {slug}
 
 </div>
 )
@@ -109,46 +73,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const { slug } = params;
-    const currentPost = await sanityClient.fetch(postQuery, { slug });
-    const contacts = await sanityClient.fetch(contactQuery);
 
-
-    const posts = await sanityClient.fetch(`*[_type in ["post"]]| order(publishedAt desc){
-        title,
-        slug,
-        location,
-        overview,
-        author,
-        categories[]->{title},
-        mainImage,
-        publishedAt,
-        body,
-          }`);
+    
           
-          const currentPostIndex = posts.findIndex(item => item.slug.current === currentPost.slug.current);
-          const lastIndex = posts.length -1;
-          let previousPostIndex = 0;
-          let nextPostIndex = 0;
-  
-        
-            if(currentPostIndex == 0){
-                previousPostIndex = 0;
-            } else {
-                previousPostIndex = currentPostIndex - 1;
-            }
-
-            if(currentPostIndex == lastIndex ){
-                nextPostIndex = currentPostIndex;
-            } else {
-                nextPostIndex = currentPostIndex + 1;
-            }
-
-          const nextPost = posts[nextPostIndex];
-          const previousPost = posts[previousPostIndex];
-          const post = posts[currentPostIndex];
-          
-          
-          return { props: { nextPost } }
+          return { props: { slug } }
    
     
 }
