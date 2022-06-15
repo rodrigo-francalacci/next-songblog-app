@@ -39,7 +39,7 @@ const contactQuery =`*[_type in ["landpage"]]| order(publishedAt desc){
 
 
 
-export default function Post({ currentPost }) {
+export default function Post({ nextPost }) {
 
 
     
@@ -82,7 +82,7 @@ return(
 
 <div>
 
-    {currentPost.title}
+    {nextPost.title}
 
 </div>
 )
@@ -148,7 +148,7 @@ export async function getStaticProps({ params }) {
           const post = posts[currentPostIndex];
           
           
-          return { props: { currentPost } }
+          return { props: { nextPost } }
    
     
 }
