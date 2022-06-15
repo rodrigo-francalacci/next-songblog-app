@@ -39,10 +39,10 @@ const contactQuery =`*[_type in ["landpage"]]| order(publishedAt desc){
 
 
 
-export default function Post({ data }) {
+export default function Post({ currentPost }) {
 
 
-    const {currentPost, nextPost, previousPost, contacts } = data; 
+    
     const [isOn, setIsOn] = useState(false);
     const [colorTheme, setColorTheme] = useState(["bkgBeige", "blackFont"]);
 
@@ -148,8 +148,8 @@ export async function getStaticProps({ params }) {
           const post = posts[currentPostIndex];
           
           
-
-    return { props: { data: { currentPost, nextPost, previousPost, contacts } } };
+          return { props: { currentPost } }
+   
     
 }
 
