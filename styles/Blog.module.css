@@ -82,7 +82,7 @@
             }
 
             .itemCarousel{
-                min-width: 20.1923rem;
+               /*  min-width: 20.1923rem; */
                 padding-left: 1.7067rem;
                 padding-right: 1.7067rem;
 
@@ -116,6 +116,22 @@
 
 
 /* CLAMPS */
+.width_350_200{
+    --sMin: 250; /* smallest width size in pixels */
+    --sMax: 350; /* largest width size in pixels */
+    
+      --fontDiff: calc((var(--sMax) * var(--sFactor)) - (var(--sMin) * var(--bFactor)));
+      --yCoef: calc(100 * (var(--fontDiff) / var(--screenDiff) ) );
+
+      --xP1: calc(var(--sMax) / (16 * var(--bFactor)));
+      --xP2: calc(var(--bScreen) / (1600 * var(--bFactor)));
+      --xCoef: calc(var(--xP1) - (var(--yCoef) * var(--xP2)));
+
+      --min: calc(var(--sMin) * 1px);
+      --max: calc(var(--sMax) * 1px);
+  
+      min-width: clamp(var(--min), calc( var(--xCoef)*1rem + var(--yCoef)*1vw), var(--max));
+  }
 
 
 /* MEDIA QUERIES */

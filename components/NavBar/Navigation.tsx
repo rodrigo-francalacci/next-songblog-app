@@ -95,7 +95,7 @@ export function MobileNavigation({campaignTitle, currentPage, categories, posts}
                             </div>;
 
     const blogMenuClosed =  <div className={`${styles.blogMenuClosed}`} onClick={() => setOpen(!open)}>
-                                <p className={`size-21 whiteFont`}>Find a Post</p>
+                                <p className={`size-21 whiteFont`}>FIND A POST</p>
                                 {searchIcon}
                             </div>;
 

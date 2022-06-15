@@ -122,7 +122,7 @@ export default function Blog({ data }) {
                                 className={styles.inner_carousel}>
 
                                     {posts?.length > 0 && posts.map((item) => (
-                                        <motion.div key={item._id} className={styles.itemCarousel}>
+                                        <motion.div key={item._id} className={`${styles.itemCarousel} ${styles.width_350_200}` }> 
                                             <PortraitCard props={item}/>
                                         </motion.div>
                                     ))}
