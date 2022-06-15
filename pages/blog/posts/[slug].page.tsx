@@ -125,7 +125,7 @@ return(
         </div>
 
 
-        <PortableText value={post?.body}/>
+        <PortableText value={post.body}/>
 
         <div className={styles.tagsContainer}>
                 {post.categories?.length > 0 && post.categories.map((item) => (
@@ -183,15 +183,23 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const { slug } = params;
-    const post = await sanityClient.fetch(postQuery, { slug });
+    const currentPost = await sanityClient.fetch(postQuery, { slug });
     const contacts = await sanityClient.fetch(contactQuery);
 
 
     const posts = await sanityClient.fetch(`*[_type in ["post"]]| order(publishedAt desc){
-        slug
+        title,
+        slug,
+        location,
+        overview,
+        author,
+        categories[]->{title},
+        mainImage,
+        publishedAt,
+        body,
           }`);
           
-          const currentPostIndex = posts.findIndex(item => item.slug.current === post.slug.current);
+          const currentPostIndex = posts.findIndex(item => item.slug.current === currentPost.slug.current);
           const lastIndex = posts.length -1;
           let previousPostIndex = 0;
           let nextPostIndex = 0;
@@ -211,6 +219,7 @@ export async function getStaticProps({ params }) {
 
           const nextPost = posts[nextPostIndex];
           const previousPost = posts[previousPostIndex];
+          const post = posts[currentPostIndex];
           
           
 
