@@ -38,9 +38,7 @@ const contactQuery =`*[_type in ["landpage"]]| order(publishedAt desc){
 
 
 
-
 export default function Post({ contacts }) {
-
 
 
 return(
@@ -67,7 +65,7 @@ export async function getStaticPaths() {
 
     return {
         paths,
-        fallback: true
+        fallback: false
     }
     
 }
@@ -76,7 +74,6 @@ export async function getStaticProps({ params }) {
     const { slug } = params;
     const contacts = await sanityClient.fetch(contactQuery);
 
-    
           
           return { props: { contacts } }
    
