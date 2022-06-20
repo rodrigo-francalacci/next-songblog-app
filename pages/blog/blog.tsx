@@ -69,13 +69,13 @@ export default function Blog({ data }) {
     }
 
     useEffect(() => {
-        handleSize();
+      //  handleSize();
     }, []);
 
 
-/*     useEffect(() => {
+ useEffect(() => {
         window.addEventListener('resize', handleSize)
-    }, []); */
+    }, []);
 
     return(
     <div>
